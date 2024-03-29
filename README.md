@@ -9,3 +9,4 @@ Possible components needed for each page (already have a navbar):
   - Left sidebar
   - Footer
   - Card for both categories
+  - User component to house the respective Read|Write Cards?

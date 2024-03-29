@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
         </Link>
       </div>
       <div className="flex-grow w-1/5 h-12">
-        <input className="mt-4" />
+        <input className="mt-4 text-gray-800" placeholder="Search..."/>
       </div>
     </nav>
   );
