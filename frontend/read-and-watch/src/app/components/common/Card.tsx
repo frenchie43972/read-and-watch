@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Button from "../ui/Button";
+import petImg from "../../../../public/Pet11.png"
 
 interface CardProps {
   title: string;
@@ -12,7 +13,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({
   title,
-  imageUrl,
+  imageUrl={petImg},
   onSave,
   onDelete,
   onSearch,
@@ -20,15 +21,20 @@ const Card: React.FC<CardProps> = ({
 }) => {
 
   return (
-    
-    <div className="max-w-sm rounded text-[#35374B] overflow-hidden shadow-lg bg-[#FFF7F1]">
-      {imageUrl && (
-        <Image className="w-full" src={imageUrl} alt={`Cover of ${title}`} />
-      )}
+    <div className="basis-1/3 rounded text-[#35374B] overflow-hidden shadow-lg bg-[#FFF7F1]">
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{title}</div>
         {children}
       </div>
+      {imageUrl && (
+        <Image 
+          width={150}
+          height={150}
+          className="w-full h-auto" 
+          src={petImg}
+          alt={`Cover of ${title}`} 
+        />
+      )}
       <div className="px-6 pt-4 pb-2 flex justify-between">
         {onSave && <Button size="small" onClick={onSave}>Save</Button>}
         {onDelete && <Button size="small" onClick={onDelete}>Delete</Button>}
@@ -46,3 +52,24 @@ const Card: React.FC<CardProps> = ({
 }
 
 export default Card;
+
+
+// {imageUrl && (
+//   <Image className="w-full" src={imageUrl} alt={`Cover of ${title}`} />
+// )}
+// <div className="px-6 py-4">
+//   <div className="font-bold text-xl mb-2">{title}</div>
+//   {children}
+// </div>
+// <div className="px-6 pt-4 pb-2 flex justify-between">
+//   {onSave && <Button size="small" onClick={onSave}>Save</Button>}
+//   {onDelete && <Button size="small" onClick={onDelete}>Delete</Button>}
+//   {onSearch && (
+//     <input 
+//       type="text"
+//       placeholder="Search..."
+//       className="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+//       // Need to add a key press event for the search
+//     />
+//   )}
+// </div>
